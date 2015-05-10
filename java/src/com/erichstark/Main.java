@@ -15,9 +15,19 @@ public class Main {
 		List<Place> placeList;
 		List<Transition> transitionList;
 		List<Arc> arcList;
+		String fileName;
+
+		// Release: ak sa zada cesta z konzole alebo nazov suboru tak ju zoberie ako prvu
+		// java -jar boundedness.jar /cesta/k/subor.pflow
+		if (args.length > 0) {
+			fileName = args[0];
+		} else {
+			// Debug: potom zmazat pri release
+			fileName = "/Users/Erich/Desktop/pflow/safe_ohr.pflow";
+		}
 
 		// parameter je cesta k suboru .pflow
-		PflowParser pflowParser = new PflowParser("/Users/Erich/Desktop/pflow/safe_ohr.pflow");
+		PflowParser pflowParser = new PflowParser(fileName);
 
 
 		// zavola sa metoda triedy PflowParser a nasledne podla typu
